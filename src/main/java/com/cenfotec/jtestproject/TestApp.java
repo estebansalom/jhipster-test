@@ -99,5 +99,6 @@ public class TestApp {
             contextPath,
             env.getActiveProfiles()
         );
+        System.out.println("Back-end from dev branch is running...");
     }
 }
