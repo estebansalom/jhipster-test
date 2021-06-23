@@ -51,6 +51,26 @@ public class CacheConfiguration {
             createCache(cm, com.cenfotec.jtestproject.domain.User.class.getName());
             createCache(cm, com.cenfotec.jtestproject.domain.Authority.class.getName());
             createCache(cm, com.cenfotec.jtestproject.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.cenfotec.jtestproject.domain.UserDetails.class.getName());
+            createCache(cm, com.cenfotec.jtestproject.domain.UserDetails.class.getName() + ".wallets");
+            createCache(cm, com.cenfotec.jtestproject.domain.UserDetails.class.getName() + ".contacts");
+            createCache(cm, com.cenfotec.jtestproject.domain.Wallet.class.getName());
+            createCache(cm, com.cenfotec.jtestproject.domain.Wallet.class.getName() + ".transactions");
+            createCache(cm, com.cenfotec.jtestproject.domain.Transaction.class.getName());
+            createCache(cm, com.cenfotec.jtestproject.domain.Transaction.class.getName() + ".attachments");
+            createCache(cm, com.cenfotec.jtestproject.domain.Attachment.class.getName());
+            createCache(cm, com.cenfotec.jtestproject.domain.Category.class.getName());
+            createCache(cm, com.cenfotec.jtestproject.domain.Category.class.getName() + ".categories");
+            createCache(cm, com.cenfotec.jtestproject.domain.Category.class.getName() + ".transactions");
+            createCache(cm, com.cenfotec.jtestproject.domain.Invoice.class.getName());
+            createCache(cm, com.cenfotec.jtestproject.domain.Contact.class.getName());
+            createCache(cm, com.cenfotec.jtestproject.domain.Contact.class.getName() + ".userDetails");
+            createCache(cm, com.cenfotec.jtestproject.domain.Currency.class.getName());
+            createCache(cm, com.cenfotec.jtestproject.domain.Currency.class.getName() + ".transactions");
+            createCache(cm, com.cenfotec.jtestproject.domain.Icon.class.getName());
+            createCache(cm, com.cenfotec.jtestproject.domain.Icon.class.getName() + ".categories");
+            createCache(cm, com.cenfotec.jtestproject.domain.Icon.class.getName() + ".wallets");
+            createCache(cm, com.cenfotec.jtestproject.domain.License.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

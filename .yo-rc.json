@@ -42,6 +42,8 @@
     "jwtSecretKey": "NDMyZTg1ODFhNDQwMTAzOWY2MDkzMmUzMzFmZjNkYmFjZGM2MDM1MmUyNWFiMWM4MDhmYjQxODFmMjY1NzQyMzIzNWY1NjUwOGNmZDJmMGNkMmJjYjUxY2Q1NzI2ODQ4YjhmMTNlMmJlYWQzZmYzYjljNTJhMzViYjYwODMyMzU=",
     "devServerPort": 4200,
     "clientPackageManager": "npm",
-    "languages": ["en", "es"]
+    "languages": ["en", "es"],
+    "entities": ["UserDetails", "Wallet", "Transaction", "Attachment", "Category", "Invoice", "Contact", "Currency", "Icon", "License"],
+    "lastLiquibaseTimestamp": 1624407409000
   }
 }
