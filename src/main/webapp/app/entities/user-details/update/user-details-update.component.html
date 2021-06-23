@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-user-details-heading" data-cy="UserDetailsCreateUpdateHeading" jhiTranslate="testApp.userDetails.home.createOrEditLabel">
+        Create or edit a User Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="testApp.userDetails.country" for="field_country">Country</label>
+          <input type="text" class="form-control" name="country" id="field_country" data-cy="country" formControlName="country" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="testApp.userDetails.phone" for="field_phone">Phone</label>
+          <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="testApp.userDetails.license" for="field_license">License</label>
+          <select class="form-control" id="field_license" data-cy="license" name="license" formControlName="license">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="licenseOption.id === editForm.get('license')!.value?.id ? editForm.get('license')!.value : licenseOption"
+              *ngFor="let licenseOption of licensesCollection; trackBy: trackLicenseById"
+            >
+              {{ licenseOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label jhiTranslate="testApp.userDetails.contact" for="field_contacts">Contact</label>
+          <select class="form-control" id="field_contacts" data-cy="contact" multiple name="contacts" formControlName="contacts">
+            <option
+              [ngValue]="getSelectedContact(contactOption, editForm.get('contacts')!.value)"
+              *ngFor="let contactOption of contactsSharedCollection; trackBy: trackContactById"
+            >
+              {{ contactOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

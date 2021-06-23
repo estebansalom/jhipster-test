@@ -1,0 +1,99 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-wallet-heading" data-cy="WalletCreateUpdateHeading" jhiTranslate="testApp.wallet.home.createOrEditLabel">
+        Create or edit a Wallet
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="testApp.wallet.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="testApp.wallet.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="testApp.wallet.currency" for="field_currency">Currency</label>
+          <input type="text" class="form-control" name="currency" id="field_currency" data-cy="currency" formControlName="currency" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="testApp.wallet.initialBalance" for="field_initialBalance">Initial Balance</label>
+          <input
+            type="number"
+            class="form-control"
+            name="initialBalance"
+            id="field_initialBalance"
+            data-cy="initialBalance"
+            formControlName="initialBalance"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="testApp.wallet.inReports" for="field_inReports">In Reports</label>
+          <input type="checkbox" class="form-check" name="inReports" id="field_inReports" data-cy="inReports" formControlName="inReports" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="testApp.wallet.user" for="field_user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="userDetailsOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userDetailsOption"
+              *ngFor="let userDetailsOption of userDetailsSharedCollection; trackBy: trackUserDetailsById"
+            >
+              {{ userDetailsOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="testApp.wallet.icon" for="field_icon">Icon</label>
+          <select class="form-control" id="field_icon" data-cy="icon" name="icon" formControlName="icon">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="iconOption.id === editForm.get('icon')!.value?.id ? editForm.get('icon')!.value : iconOption"
+              *ngFor="let iconOption of iconsSharedCollection; trackBy: trackIconById"
+            >
+              {{ iconOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

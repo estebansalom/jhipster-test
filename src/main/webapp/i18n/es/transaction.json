@@ -1,0 +1,33 @@
+{
+  "testApp": {
+    "transaction": {
+      "home": {
+        "title": "Transactions",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Transaction",
+        "createOrEditLabel": "Crear o editar Transaction",
+        "notFound": "Ningún Transactions encontrado"
+      },
+      "created": "Un nuevo Transaction ha sido creado con el identificador {{ param }}",
+      "updated": "Un Transaction ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Transaction ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Transaction {{ id }}?"
+      },
+      "detail": {
+        "title": "Transaction"
+      },
+      "name": "Name",
+      "description": "Description",
+      "date": "Date",
+      "amount": "Amount",
+      "type": "Type",
+      "periodic": "Periodic",
+      "id": "Id",
+      "attachment": "Attachment",
+      "wallet": "Wallet",
+      "currency": "Currency",
+      "category": "Category"
+    }
+  }
+}

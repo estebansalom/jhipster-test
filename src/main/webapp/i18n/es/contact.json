@@ -1,0 +1,27 @@
+{
+  "testApp": {
+    "contact": {
+      "home": {
+        "title": "Contacts",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Contact",
+        "createOrEditLabel": "Crear o editar Contact",
+        "notFound": "Ningún Contacts encontrado"
+      },
+      "created": "Un nuevo Contact ha sido creado con el identificador {{ param }}",
+      "updated": "Un Contact ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Contact ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Contact {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact"
+      },
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "userDetails": "User Details"
+    }
+  }
+}

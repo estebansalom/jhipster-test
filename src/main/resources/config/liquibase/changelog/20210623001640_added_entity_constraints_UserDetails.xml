@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity UserDetails.
+    -->
+    <changeSet id="20210623001640-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="license_id"
+                                 baseTableName="t_user"
+                                 constraintName="fk_t_user__license_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="license"/>
+
+        <addForeignKeyConstraint baseColumnNames="t_user_id"
+                                 baseTableName="rel_t_user__contact"
+                                 constraintName="fk_rel_t_user__contact__t_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="t_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="contact_id"
+                                 baseTableName="rel_t_user__contact"
+                                 constraintName="fk_rel_t_user__contact__contact_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="icon">
+      <h2 data-cy="iconDetailsHeading"><span jhiTranslate="testApp.icon.detail.title">Icon</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ icon.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.icon.icon">Icon</span></dt>
+        <dd>
+          <span>{{ icon.icon }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.icon.type">Type</span></dt>
+        <dd>
+          <span>{{ icon.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.icon.name">Name</span></dt>
+        <dd>
+          <span>{{ icon.name }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/icon', icon.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="wallet">
+      <h2 data-cy="walletDetailsHeading"><span jhiTranslate="testApp.wallet.detail.title">Wallet</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ wallet.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.wallet.name">Name</span></dt>
+        <dd>
+          <span>{{ wallet.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.wallet.description">Description</span></dt>
+        <dd>
+          <span>{{ wallet.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.wallet.currency">Currency</span></dt>
+        <dd>
+          <span>{{ wallet.currency }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.wallet.initialBalance">Initial Balance</span></dt>
+        <dd>
+          <span>{{ wallet.initialBalance }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.wallet.inReports">In Reports</span></dt>
+        <dd>
+          <span>{{ wallet.inReports }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.wallet.user">User</span></dt>
+        <dd>
+          <div *ngIf="wallet.user">
+            <a [routerLink]="['/user-details', wallet.user?.id, 'view']">{{ wallet.user?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="testApp.wallet.icon">Icon</span></dt>
+        <dd>
+          <div *ngIf="wallet.icon">
+            <a [routerLink]="['/icon', wallet.icon?.id, 'view']">{{ wallet.icon?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/wallet', wallet.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

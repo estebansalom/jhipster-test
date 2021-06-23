@@ -1,0 +1,30 @@
+{
+  "name": "License",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "license",
+      "relationshipName": "invoice",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "userDetails",
+      "otherEntityRelationshipName": "license",
+      "relationshipName": "userDetails",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "license",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210623001649"
+}

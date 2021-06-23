@@ -1,0 +1,25 @@
+{
+  "testApp": {
+    "license": {
+      "home": {
+        "title": "Licenses",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo License",
+        "createOrEditLabel": "Crear o editar License",
+        "notFound": "Ningún Licenses encontrado"
+      },
+      "created": "Un nuevo License ha sido creado con el identificador {{ param }}",
+      "updated": "Un License ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un License ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar License {{ id }}?"
+      },
+      "detail": {
+        "title": "License"
+      },
+      "id": "ID",
+      "invoice": "Invoice",
+      "userDetails": "User Details"
+    }
+  }
+}

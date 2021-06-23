@@ -1,0 +1,88 @@
+<div>
+  <h2 id="page-heading" data-cy="WalletHeading">
+    <span jhiTranslate="testApp.wallet.home.title">Wallets</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="testApp.wallet.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-wallet"
+        [routerLink]="['/wallet/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="testApp.wallet.home.createLabel"> Create a new Wallet </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="wallets?.length === 0">
+    <span jhiTranslate="testApp.wallet.home.notFound">No wallets found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="wallets && wallets.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="testApp.wallet.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="testApp.wallet.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="testApp.wallet.currency">Currency</span></th>
+          <th scope="col"><span jhiTranslate="testApp.wallet.initialBalance">Initial Balance</span></th>
+          <th scope="col"><span jhiTranslate="testApp.wallet.inReports">In Reports</span></th>
+          <th scope="col"><span jhiTranslate="testApp.wallet.user">User</span></th>
+          <th scope="col"><span jhiTranslate="testApp.wallet.icon">Icon</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let wallet of wallets; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/wallet', wallet.id, 'view']">{{ wallet.id }}</a>
+          </td>
+          <td>{{ wallet.name }}</td>
+          <td>{{ wallet.description }}</td>
+          <td>{{ wallet.currency }}</td>
+          <td>{{ wallet.initialBalance }}</td>
+          <td>{{ wallet.inReports }}</td>
+          <td>
+            <div *ngIf="wallet.user">
+              <a [routerLink]="['/user-details', wallet.user?.id, 'view']">{{ wallet.user?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="wallet.icon">
+              <a [routerLink]="['/icon', wallet.icon?.id, 'view']">{{ wallet.icon?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/wallet', wallet.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/wallet', wallet.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(wallet)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

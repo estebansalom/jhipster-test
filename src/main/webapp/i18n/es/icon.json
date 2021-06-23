@@ -1,0 +1,28 @@
+{
+  "testApp": {
+    "icon": {
+      "home": {
+        "title": "Icons",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Icon",
+        "createOrEditLabel": "Crear o editar Icon",
+        "notFound": "Ningún Icons encontrado"
+      },
+      "created": "Un nuevo Icon ha sido creado con el identificador {{ param }}",
+      "updated": "Un Icon ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Icon ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Icon {{ id }}?"
+      },
+      "detail": {
+        "title": "Icon"
+      },
+      "id": "ID",
+      "icon": "Icon",
+      "type": "Type",
+      "name": "Name",
+      "category": "Category",
+      "wallet": "Wallet"
+    }
+  }
+}

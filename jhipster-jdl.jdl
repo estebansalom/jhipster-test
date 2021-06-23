@@ -1,0 +1,68 @@
+entity UserDetails(T_USER) {
+  country String,
+    phone String
+}
+entity Wallet(T_WALLET) {
+  name String,
+    description String,
+    currency String,
+    initialBalance Float,
+    inReports Boolean
+}
+entity Transaction(T_TRANSACTION) {
+  name String,
+    description String,
+    date LocalDate,
+    amount Float,
+    type String,
+    periodic Boolean,
+    id UUID
+}
+entity Attachment(T_ATTACHMENT) {
+  url String,
+    name String,
+    alt String,
+    description String
+}
+entity Category(T_CATEGORY) {
+  name String
+}
+entity Invoice {
+  name String
+}
+entity Contact {
+  name String,
+   email String,
+   phone String
+}
+entity Currency {
+  name String,
+  conversionRate Float
+}
+entity Icon {
+  icon String,
+  type String,
+  name String
+}
+entity License
+
+relationship OneToMany {
+  UserDetails{wallet} to Wallet{user},
+  Wallet{transaction} to Transaction{wallet},
+  Transaction{attachment} to Attachment{transaction},
+  Currency to Transaction{currency},
+  Icon to Category{icon},
+  Icon to Wallet{icon},
+  Category to Category{parent},
+  Category to Transaction{category},
+  Currency to Transaction{currency}
+}
+
+relationship ManyToMany {
+	UserDetails to Contact
+}
+
+relationship OneToOne {
+  UserDetails to License,
+  License to Invoice
+}
